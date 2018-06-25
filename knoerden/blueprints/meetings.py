@@ -31,7 +31,6 @@ def meeting(meeting_id):
         with database.transaction() as transaction:
             transaction.execute("delete from meetings_users where meeting_id = ? and user_id = ?", meeting_id, session["user_id"])
             transaction.create("meetings_users", meeting_id=meeting_id, user_id=session["user_id"], is_attending=data.is_attending, note=data.note)
-        # database.execute("insert into meetings_users (meeting_id, user_id, is_attending, note) values (?, ?, ?, ?) on conflict do update set is_attending = ?, note = ?, updated_at = ? ", meeting_id, session["user_id"], data.is_attending, data.note, data.is_attending, data.note, datetime.datetime.utcnow())
     meeting = database.execute("select * from meetings where meeting_id = ?", meeting_id).one()
     users = database.execute("select * from meetings_users inner join users using (user_id) where meeting_id = ?", meeting_id)
     number_of_attending = sum(1 for x in users if x.is_attending)
