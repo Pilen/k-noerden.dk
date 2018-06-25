@@ -1,0 +1,430 @@
+.fdf-farver {
+    /* FDF-Blå */
+    color: #5e8ab4, rgb(94, 138, 180);
+    /* Skjold rød */
+    color: #c8102e, rgb(200, 16, 46);
+    /* Mørk blå */
+    color: #326295, rgb(50, 98, 149);
+
+    /* webdesign: */
+    color: #456889, rgb(69, 104, 137);
+    color: #233b52, rgb(35, 59, 82);
+    color: #e4e9eb, rgb(228, 233, 235);
+    color: #1d1d1b, rgb(29, 29, 27);
+    color: #b3bfc4, rgb(179, 191, 196);
+    color: #ecece8, rgb(236, 236, 232);
+    color: #e15310, rgb(225, 83, 16);
+    color: #79868b, rgb(121, 134, 139);
+    color: #f9af1a, rgb(249, 175, 26);
+
+
+    color: #1d1d1b, rgb(29, 29, 27);
+    color: #233b52, rgb(35, 59, 82);
+    color: #456889, rgb(69, 104, 137);
+    color: #79868b, rgb(121, 134, 139);
+    color: #b3bfc4, rgb(179, 191, 196);
+    color: #e4e9eb, rgb(228, 233, 235);
+    color: #ecece8, rgb(236, 236, 232);
+    color: #e15310, rgb(225, 83, 16);
+    color: #f9af1a, rgb(249, 175, 26);
+
+}
+
+/******************************************************************************/
+/*                                  General                                   */
+/******************************************************************************/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+    background-color: #1d1d1b;
+    color: #ecece8;
+    background-image: url("/static/images/stock/524372342.jpg");
+    /* background: url(../images/background.jpg) no-repeat scroll center top #10131a; */
+}
+
+.page {
+    /* margin: 20px 100px 0px 100px; */
+    /* margin: 20px 10px 0px 10px; */
+    margin: auto;
+    /* width: 80%; */
+    background-color: #b3bfc4;
+    height: 10%;
+    /* height: 100vh; */
+    /* width: 80%; */
+    /* height: 500px; */
+    /* padding: 40px; */
+    /* border: 3px solid white; */
+    /* border-radius: 5px; */
+}
+.elements {
+    margin: 20px 100px 0px 100px;
+    margin: 20px 10px 0px 10px;
+    /* background-color: #b3bfc4; */
+    /* height: 100vh; */
+    /* width: 80%; */
+    /* height: 500px; */
+    /* padding: 40px; */
+    /* border: 3px solid white; */
+    /* border-radius: 5px; */
+}
+
+/******************************************************************************/
+/*                                  Utility                                   */
+/******************************************************************************/
+.right {
+    float: right !important;
+}
+
+.notched1 {
+    --notchSize: 10px;
+    clip-path:
+        polygon(
+            0% var(--notchSize),
+            var(--notchSize) 0%,
+            100% 0%,
+            /* calc(100% - var(--notchSize)) 0%, */
+            /* 100% var(--notchSize), */
+            100% calc(100% - var(--notchSize)),
+            calc(100% - var(--notchSize)) 100%,
+            /* var(--notchSize) 100%, */
+            /* 0% calc(100% - var(--notchSize)) */
+            0% 100%
+        );
+}
+.notched {
+    --notchSize: 10px;
+    clip-path:
+        polygon(
+            0% var(--notchSize),
+            var(--notchSize) 0%,
+            calc(100% - var(--notchSize)) 0%,
+            100% var(--notchSize),
+            100% calc(100% - var(--notchSize)),
+            calc(100% - var(--notchSize)) 100%,
+            var(--notchSize) 100%,
+            0% calc(100% - var(--notchSize)),
+            0% 100%
+        );
+}
+
+/******************************************************************************/
+/*                                  Menubar                                   */
+/******************************************************************************/
+
+nav.menubar {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    background-color: #456889;
+    font-family: sans-serif;
+    /* justify-content: space-around; */
+    /* padding: 0px; */
+    /* margin: 0px; */
+}
+
+nav.menubar a {
+    display: flex;
+    height: 100%;
+    text-decoration: none;
+    align-items: center;
+    color: #ecece8;
+    /* flex: 1; */
+    /* border: 1px solid white; */
+    width: 150px;
+    text-align: center;
+    /* position: relative; */
+}
+
+nav.menubar a div {
+    flex: 1;
+}
+nav.menubar span {
+    flex: 1;
+}
+#login_btn {
+}
+
+nav.menubar a:hover {
+    background-color: #233b52;
+}
+
+/******************************************************************************/
+/*                                  Elements                                  */
+/******************************************************************************/
+
+.element {
+    /* Use padding instead of margin to calculate width properly,
+       cant do box-sizing: margin-box */
+    /* padding: 10px; */
+    width: calc(100.00% / 3);
+    /* height: calc(50.00vw * 0.5); */
+    /* height: calc(50.00vw * 0.337); */
+    /* height: calc(100.00vw / 3 - (100.00vw - 100%) / 3); */
+    /* height: 400px; */
+    float: left;
+    display: inline-block;
+    position: relative;
+}
+.element:before {
+    content: '';
+    display: block;
+    padding-top: 75%;
+    padding-top: 100%;
+}
+.element-aspect {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+}
+.element-content {
+    background-color: #233b52;
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.element-content:hover {
+    opacity: 0.8;
+}
+
+.element-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+.element-description {
+    position: absolute;
+    width: 100%;
+    opacity: 0.8;
+    bottom: 0px;
+}
+.element-headline {
+    background-color: #79868b;
+    color: #1d1d1b;
+}
+.element-byline {
+    background-color: #e4e9eb;
+    color: #1d1d1b;
+    font-size: 0.5em;
+}
+.element-summary{
+    background-color: #e4e9eb;
+    color: #1d1d1b;
+    padding-bottom: 5px;
+}
+
+/******************************************************************************/
+/*                                Login modal                                 */
+/******************************************************************************/
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgb(0, 0, 0, 0.8);
+    padding-top: 60px;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #79868b;
+    margin: auto;
+    padding: 16px;
+    padding-top: 40px;
+    /* border: 1px solid #e15310; */
+    width: 50%;
+    top: 5px;
+}
+
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #1d1d1b;
+    font-size: 35px;
+    font-weight: bold;
+}
+.close:hover {
+    color: #e15310;
+    cursor: pointer;
+}
+
+
+.animate {
+    animation: animatezoom 0.3s
+}
+@keyframes animatezoom {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+
+#login .modal-content {
+    max-width: 400px;
+    /* margin: 0px; */
+    /* left: 90%; */
+    /* right: 10%; */
+    /* float: left; */
+}
+
+
+/******************************************************************************/
+/*                                input-group                                 */
+/******************************************************************************/
+
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+    margin: 8px 0;
+}
+.input-group > .input-group-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    /* margin: 0px; */
+    margin-right: -1px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center
+    white-space: nowrap;
+    background-color: #e15310;
+    border: 1px solid #f9af1a;
+    border-radius: 4px 0px 0px 4px;
+
+    width: 10%;
+}
+.input-group > input[type=text], .input-group > input[type=password] {
+    padding: 10px 20px;
+    display: inline-block;
+    border: 1px solid #b3bfc4;
+    border: 1px solid #f9af1a;
+    border-radius: 0px 4px 4px 0px;
+
+    position: relative;
+    display: block;
+    flex: 1 1 auto;
+    font-size: 1rem;
+    line-height: 1.5;
+    background-color: #ecece8;
+    color: #1d1d1b;
+    overflow: visible;
+
+    transition:
+        border-color 0.15s ease-in-out,
+        shadow 0.15 ease-in-out;
+}
+.modal > input::placeholder {
+    color: #1d1d1b;
+    opacity: 0.3;
+}
+
+button {
+    background-color: #e15310;
+    color: #ecece8;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%
+    width: auto;
+}
+
+button:hover {
+    background-color: #e15310aa;
+}
+
+
+/******************************************************************************/
+/*                                  Meeting                                   */
+/******************************************************************************/
+.meeting-bar {
+    background-color: #e15310;
+}
+.meeting-subbar {
+    background-color: #79868b;
+}
+.meeting-canceled {
+    background-color: #c8102e;
+}
+.meeting-date {
+}
+
+.meeting-table {
+    /* background-color: #b3bfc4; */
+    /* background-color: #e4e9eb; */
+
+    background-color: #79868b;
+
+}
+
+/******************************************************************************/
+/*                                 Responsive                                 */
+/******************************************************************************/
+/* Device/window dependent rules                                              */
+/* All this should be "Mobile first" base rules are for smallest and up.      */
+/* You can do more specific stuff for bigger screens.                         */
+/* These parts should only modify the base behaviour.                         */
+/******************************************************************************/
+
+/* 0-800 800-1200 1200-1600
+   0-800 400-600  400-533
+
+   0-600 600-1200 1200-1600
+   0-600 600-
+
+ */
+@media (min-width: 0px) {
+    .element {
+        width: 100%;
+    }
+    .page {
+        width: 98%;
+    }
+}
+
+@media (min-width: 700px) {
+    .element {
+        width: 50%;
+    }
+    .page{
+        max-width: 1000px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .element {
+        width: 33%;
+    }
+    .page {
+        max-width: 1000px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .element {
+        width: 25%;
+    }
+}

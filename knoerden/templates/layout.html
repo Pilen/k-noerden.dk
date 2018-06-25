@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="content-language" content="da" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <title>K-Nørden</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css"/>
+
+    <script src="/static/libs/jquery-3.3.1.min.js"></script>
+    <script src="/static/libs/jquery-ui-1.12.1.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+    <!-- <script src="https://unpkg.com/fea2ther-icons/dist/feather.min.js"></script> -->
+
+    <script src="/static/knoerden.js"></script>
+  </head>
+  <body>
+    <nav class="menubar">
+      <!-- <a href=''><div><i style="float:left; width:16px;" data-feather="settingsu"></i>Forside</div></a> -->
+      <a href="/"><div>Forside</div></a>
+      <a href="/wiki"><div>Wiki</div></a>
+      <a href="/projects"><div>Projekter</div></a>
+      <a href="/inventory"><div>Lager</div></a>
+      <a href="{{url_for('meetings.list')}}"><div>Møder</div></a>
+      <a href=""><div>Om K-Nørden</div></a>
+      <span></span>
+      <!-- <a></a> -->
+      <!-- <a></a> -->
+
+      {% if session["username"] %}
+      logged in as {{session["username"]}}
+      {% else %}
+      <a href='' class="rightt" id="login_btn"><div>Login</div></a>
+      {% endif %}
+    </nav>
+
+    <div class="modal" id="login">
+      <form class="modal-content animate notched" action='{{url_for("users.login")}}' method="post">
+        <span class="close" title="Luk">&times;</span>
+        <div class="input-group">
+          <div class="input-group-header">U</div>
+          <input type="text" placeholder="Brugernavn / medlemsnummer" name="username" required/>
+        </div>
+        <div class="input-group">
+          <div class="input-group-header">U</div>
+          <input type="password" placeholder="password" name="password" required/>
+        </div>
+        <div style="display:flex; justify-content: space-between">
+          <div><a href=''>Glemt login?</a></div>
+          <button type="submit">Login</button>
+        </div>
+      </form>
+    </div>
+    <div class="elements">
+      {% block elements %}{% endblock %}
+    </div>
+    <div class="page">
+      {% block page %}{% endblock %}
+    </div>
+  </body>
+  <script>
+    <!-- feather.replace(); -->
+  </script>
+</html>

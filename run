@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+source venv/bin/activate
+
+export FLASK_DEBUG=1
+export FLASK_ENV=development
+export FLASK_APP=knoerden/app.py
+flask run --host 0.0.0.0

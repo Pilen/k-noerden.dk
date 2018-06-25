@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+source venv/bin/activate
+
+export PYTHONPATH="."
+python -m scripts.reset_database;
+
+# time coverage run --omit="venv/*" tests/test.py && coverage report
+
+# time coverage run --omit="venv/*" $(which pytest) -s tests/test.py && coverage report
+
+
+# # only tests
+time python -m tests.test
+
+# # Using pytest as a program
+# time pytest -s tests/test.py
+
+# # Script method
+# export PYTHONPATH="."
+# time python tests/test.py

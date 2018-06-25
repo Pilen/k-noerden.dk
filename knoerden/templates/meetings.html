@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block page %}
+<div>
+  {% for year, meetings in meetings_by_year %}
+  <h1>{{year}}</h1>
+  <table>
+    {% for meeting in meetings %}
+    <tr>
+      <td>{{meeting.date | date}}</td>
+      <td>
+        <a href="{{url_for('meetings.meeting', meeting_id=meeting.meeting_id)}}">
+          {{meeting.title}}
+        </a>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block page %}
+Opret møde
+<div>
+  <form method="POST">
+    <div class="input-group">
+      <div class="input-group-header">Dato</div>
+      <input name="date" type="date"/>
+    </div>
+    <div class="input-group">
+      <div class="input-group-header">Tidspunkt</div>
+      <input name="time" type="text" value="18:00"/>
+    </div>
+    <div class="input-group">
+      <div class="input-group-header">Titel</div>
+      <input name="title" type="text"/>
+    </div>
+    <div class="input-group">
+      <textarea name="description"></textarea>
+    </div>
+    <button type="submit">Opret</button>
+  </form>
+</div>
+{% endblock %}

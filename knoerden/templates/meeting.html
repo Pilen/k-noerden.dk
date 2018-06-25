@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block page %}
+<div class="meeting-bar">
+  <span class="meeting-title">{{meeting.title}}</span>
+  <span class="meeting-date">{{meeting.date | date}}</span>
+</div>
+<div class="meeting-subbar">
+  <span>{{meeting.created_at | date}}</span>
+  <span>{{meeting.created_by | fetch_user}}</span>
+</div>
+{% if meeting.is_canceled %}
+<div class="meeting-canceled">Aflyst</div>
+{% endif %}
+<form method="POST">
+  <label for="is_attending-yes">Kommer</label>
+  <input type="radio" name="is_attending" value="yes" id="is_attending-yes"/>
+  <label for="is_attending-no">Kommer Ikke</label>
+  <input type="radio" name="is_attending" value="no" id="is_attending-no"/>
+  <input type="text" name="note" placeholder="Note"/>
+  <button type="submit">Gem</button>
+</form>
+<div>
+  {{meeting.description}}
+</div>
+<table class="meeting-table">
+  <tr>
+    <th>Bruger</th>
+    <th>Kommer</th>
+    <th>Note</th>
+  </tr>
+{% for user in users %}
+  <tr>
+    <td class="meeting-table-user">{{user | user}}</td>
+    <td class="meeting-table-is_attending">{{user.is_attending}}</td>
+    <td class="meeting-table-note">{{user.note}}</td>
+  </tr>
+{% endfor %}
+Kommer: {{number_of_attending}}
+
+</table>
+
+{% endblock %}

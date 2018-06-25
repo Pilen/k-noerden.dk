@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block elements %}
+{% for item in items %}
+<div class="element">
+  <div class="element-aspect">
+    <a class="element-content notched" href="{{item['url']}}">
+      {% if item["image"] %}
+      <img class="element-image" src="{{item['image']}}"/>
+      {% endif %}
+      <div class="element-description">
+        <div class="element-headline">{{item["headline"]}}</div>
+        <div class="element-byline">{{item["author"]}} - {{item["date"]}}</div>
+        <div class="element-summary">{{item["summary"]}}</div>
+      </div>
+    </a>
+  </div>
+</div>
+{% endfor %}
+Hello, World from html2
+{% endblock %}
